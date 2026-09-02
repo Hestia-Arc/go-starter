@@ -1,0 +1,19 @@
+# Binaries
+/bin/
+/dist/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Coverage
+coverage.out
+coverage.html
