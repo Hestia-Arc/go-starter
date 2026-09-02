@@ -1,6 +1,10 @@
 package httpserver
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/Hestia-Arc/go-starter/internal/httpserver/middleware"
+)
 
 func NewRouter() http.Handler {
 	mux := http.NewServeMux()
@@ -10,5 +14,8 @@ func NewRouter() http.Handler {
 		_, _ = w.Write([]byte(`{"status":"ok"}`))
 	})
 
-	return mux
+	return middleware.Chain(
+		mux,
+		middleware.Default()...,
+	)
 }
